@@ -15,8 +15,10 @@ import java.util.Optional;
 @Controller
 public class WizardController {
 
-    @Autowired
-    private WizardRepository repository;
+    private final WizardRepository repository;
+    public WizardController(WizardRepository repositoryInjected){
+        this.repository = repositoryInjected;
+    }
 
     @GetMapping("/wizards")
     public String getAll(Model model) {
